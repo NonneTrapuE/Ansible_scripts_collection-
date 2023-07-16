@@ -37,8 +37,8 @@
         'Enter current password for root': ''
         'Switch to unix_socket authentication': 'n'
         'Change the root password': 'y'
-        'New password': 'ais'
-        'Re-enter new password': 'ais'
+        'New password': ''
+        'Re-enter new password': ''
         'Remove anonymous users': 'y'
         'Disallow root login remotely': 'n'
         'Remove test database': 'y'
@@ -47,14 +47,14 @@
     failed_when: "'failed' in secure_mariadb.stdout_lines"
   - name: Création de la base de données doliBDD
     community.mysql.mysql_db:
-      login_user: root
-      login_password: ais
+      login_user: 
+      login_password: 
       name: doliBDD
       state: present
   - name: Création de l'utilisateur doliAdmin et Attribution des droits
     community.mysql.mysql_user:
-      login_user: root
-      login_password: ais
+      login_user: 
+      login_password: 
       name: doliAdmin
       password: ais
       priv: 'doliBDD.*:ALL,GRANT'
